@@ -49,11 +49,11 @@ passport.deserializeUser(function(obj, cb) {
 /*  Google AUTH  */
  
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const GOOGLE_CLIENT_ID = "780391168365-v73nt6f7u3vasdssrrvpnvptqb0a1itj.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "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";
+const GOOGLE_CLIENT_ID = "780391168365-rk24hn993p5vosr3b494j71bpranuegr.apps.googleusercontent.com";
+const GOOGLE_CLIENT_SECRET = "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";
 passport.use(new GoogleStrategy({
-    clientID:"780391168365-v73nt6f7u3vasdssrrvpnvptqb0a1itj.apps.googleusercontent.com",
-    clientSecret:"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",
+    clientID:"780391168365-rk24hn993p5vosr3b494j71bpranuegr.apps.googleusercontent.com",
+    clientSecret:"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",
     callbackURL: "http://localhost:3000/auth/google/callback"
 },
 
