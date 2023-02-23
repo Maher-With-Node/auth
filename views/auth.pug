@@ -1,0 +1,17 @@
+doctype html
+// views/pages/auth.ejs
+head
+  title Google SignIn
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  style.
+    body        { padding-top:70px; }
+.container
+  .jumbotron.text-center.text-primary
+    h1
+      span.fa.fa-lock
+      |  Social Authentication
+    p Login or Register with:
+    a.btn.btn-danger(href='/auth/google')
+      span.fa.fa-google
+      |  SignIn with Google
