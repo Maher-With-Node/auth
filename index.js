@@ -54,7 +54,7 @@ const GOOGLE_CLIENT_SECRET = "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";
 passport.use(new GoogleStrategy({
     clientID:"780391168365-v73nt6f7u3vasdssrrvpnvptqb0a1itj.apps.googleusercontent.com",
     clientSecret:"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",
-    callbackURL: "http://127.0.0.1:10000/auth/google/callback"
+    callbackURL: "https://travelling-app-with-google.onrender.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
       userProfile=profile;
