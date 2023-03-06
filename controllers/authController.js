@@ -2,9 +2,12 @@ const crypto = require('crypto');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
+const user = require('../models/gmailuserModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const Email = require('./../utils/email');
+
+
 
 const signToken = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -49,6 +52,19 @@ exports.signup = catchAsync(async (req, res, next) => {
   await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, res);
+});
+
+exports.signByGmail = catchAsync(async (req, res, next) => {
+
+  const newuser = await user.create({
+    name: req.get.name,
+    email: req.get.email
+  });
+  const url = `${req.protocol}://${req.get('host')}/me`;
+  // console.log(url);
+  await new Email(newuser, url).sendWelcome();
+
+  createSendToken(newuser, 201, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {

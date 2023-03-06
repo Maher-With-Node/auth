@@ -1,21 +1,14 @@
 doctype html
-// views/success.ejs
 head
-  title Google SignIn
-  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
-  // load bootstrap css
-  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-  // load fontawesome
-  style.
-    body        { padding-top:70px; }
-.container
-  .jumbotron
-    h1.text-primary.text-center
-      span.fa.fa-user
-      |  Profile Information
-    .row
-      .col-sm-6
-        .well
-          p
-            strong Id
-            | :
+  title Google sign in 
+  script(src='https://apis.google.com/js/platform.js' async='' defer='')
+  meta(name='google-signin-client_id' content='780391168365-rk24hn993p5vosr3b494j71bpranuegr.apps.googleusercontent.com')
+.g-signin2(data-onsuccess='onSignIn')
+script.
+  function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }

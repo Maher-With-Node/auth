@@ -39,8 +39,13 @@ exports.googleAuth = (req, res) => {
     title: 'auth account'
   });
 };
+exports.index = (req, res) => {
+  res.status(200).render('index', {
+    title: 'auth account'
+  });
+};
 
-exports.googleSuccess = (req, res) => {
+exports.signByGmail = (req, res) => {
   res.status(200).render('success', {
     title: 'auth account'
   });
@@ -51,8 +56,8 @@ exports.getLoginForm = (req, res) => {
     title: 'Log into your account'
   });
 };
-exports.getgmailsign = (req, res) => {
-  res.status(200).render('gmailsign', {
+exports.signwithgmail = (req, res) => {
+  res.status(200).render('signwithgmail', {
     title: 'sign up with gmail'
   });
 };

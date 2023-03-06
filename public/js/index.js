@@ -3,6 +3,7 @@ import '@babel/polyfill';
 import { displayMap } from './mapbox';
 import { login, logout } from './login';
 import { signup} from './signup';
+import { success} from './success';
 import { forgotPassword} from './forgotPassword';
 import { resetPassword} from './resetPassword';
 import { updateSettings } from './updateSettings';
@@ -11,9 +12,9 @@ import { updateSettings } from './updateSettings';
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
 const signupForm = document.querySelector('.form--signup');
+const signBygmailForm = document.querySelector('name,email');
 const forgotPasswordform = document.querySelector('.form--forgotPassword');
 const resetPasswordForm = document.querySelector('.form--resetPassword');
-
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
@@ -34,7 +35,18 @@ if (loginForm)
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
 
-if (signupForm)
+if (signBygmailForm)
+  signBygmailForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    success(name, email);
+
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+  });
+
+  if (signupForm)
   signupForm.addEventListener('submit', e => {
     e.preventDefault();
     const name = document.getElementById('name').value;
